@@ -6,7 +6,6 @@ import com.example.project.data.remote.FirebaseProvider
 import com.example.project.data.remote.FirestorePaths
 import com.example.project.data.remote.handle
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FieldPath
 import com.example.project.data.remote.BookingsRemoteDataSource
 import com.example.project.data.remote.SessionsRemoteDataSource
 import com.example.project.data.model.Booking

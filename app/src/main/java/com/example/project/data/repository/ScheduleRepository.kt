@@ -1,8 +1,5 @@
 package com.example.project.data.repository
 
-import com.example.project.data.model.Group
-import com.example.project.data.model.Session
-import com.example.project.data.model.Trainer
 import com.example.project.data.remote.GroupsRemoteDataSource
 import com.example.project.data.remote.SessionsRemoteDataSource
 import com.example.project.data.remote.TrainersRemoteDataSource
