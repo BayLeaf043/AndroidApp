@@ -34,7 +34,6 @@ fun InfoCarousel(
     items: List<InfoCard>,
     onCardClick: (InfoCard) -> Unit
 ) {
-    // Стан пейджера (який зараз слайд)
     val pagerState = rememberPagerState(
         initialPage = 0,
         pageCount = { items.size }
@@ -48,7 +47,6 @@ fun InfoCarousel(
             .height(180.dp)
     ) { page ->
 
-        // Легка анімація масштабу: активна картка трохи більша
         val isCurrent = pagerState.currentPage == page
         val scale by animateFloatAsState(
             targetValue = if (isCurrent) 1f else 0.9f,
@@ -71,7 +69,6 @@ fun InfoCarousel(
         ) {
             Box(modifier = Modifier.fillMaxSize()) {
 
-                // 🖼 Картинка на фоні
                 Image(
                     painter = painterResource(id = card.imageRes),
                     contentDescription = card.title,
@@ -79,14 +76,12 @@ fun InfoCarousel(
                     contentScale = ContentScale.Crop
                 )
 
-                // Легке затемнення, щоб текст читався
                 Box(
                     modifier = Modifier
                         .matchParentSize()
                         .background(Color.Black.copy(alpha = 0.35f))
                 )
 
-                // Тільки заголовок
                 Text(
                     text = card.title,
                     color = Color.White,

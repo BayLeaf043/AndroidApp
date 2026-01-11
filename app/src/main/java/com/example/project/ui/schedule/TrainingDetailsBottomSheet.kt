@@ -80,7 +80,6 @@ class TrainingDetailsBottomSheet: BottomSheetDialogFragment() {
             return
         }
 
-        // top UI
         val dateMillis = normalizeDay(startAt)
         val timeText = formatTime(startAt)
         val durationMinutes = calcDurationMinutes(startAt, endAt)
@@ -115,7 +114,6 @@ class TrainingDetailsBottomSheet: BottomSheetDialogFragment() {
 
         observe(uid)
 
-        // старт: завантаження
         vm.load(uid, sessionId, groupId)
 
         btnJoinSingle.setOnClickListener { vm.joinSingle(uid, groupId, sessionId) }
@@ -193,7 +191,6 @@ class TrainingDetailsBottomSheet: BottomSheetDialogFragment() {
         }
     }
 
-    // --- helpers (можна лишити тут як UI-утиліти) ---
     private fun formatDate(millis: Long): String {
         if (millis == 0L) return "-"
         val sdf = SimpleDateFormat("dd.MM.yyyy", Locale("uk", "UA"))

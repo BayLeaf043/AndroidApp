@@ -89,7 +89,6 @@ class ServicesCatalogFragment:Fragment() {
             setActiveButton(btnPro)
         }
 
-        // за замовчуванням: всі
         setActiveButton(btnAll)
         viewModel.setLevelFilter(null)
 
@@ -102,14 +101,12 @@ class ServicesCatalogFragment:Fragment() {
             tvEmpty.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
         }
 
-        // 🔥 Event
         viewModel.errorMessage.observe(viewLifecycleOwner) { event ->
             event?.getContentIfNotHandled()?.let { msg ->
                 Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
             }
         }
 
-        // Стартове завантаження
         if (viewModel.memberships.value.isNullOrEmpty()) {
             viewModel.loadMemberships()
         }

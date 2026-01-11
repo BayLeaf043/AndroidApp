@@ -27,7 +27,7 @@ class MyTrainingsRepository(
             userId = userId,
             onSuccess = { bookings ->
                 val activeBookings = bookings
-                    .filter { it.status.equals("active", true) } // беремо тільки активні
+                    .filter { it.status.equals("active", true) }
                     .filter { it.sessionId.isNotBlank() }
 
                 if (activeBookings.isEmpty()) {

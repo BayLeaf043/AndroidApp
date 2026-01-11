@@ -143,9 +143,6 @@ class TrainingDetailsRepository(
             )
     }
 
-    /**
-     * Single service: беремо активні single послуги і шукаємо по trainingType.
-     */
     fun findSingleForTrainingType(
         trainingType: String,
         onResult: (SingleCandidate?, String?) -> Unit

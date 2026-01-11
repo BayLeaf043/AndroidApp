@@ -69,7 +69,7 @@ class TrainingDetailsViewModel(
                 // 2) membership?
                 repo.findMatchingActiveMembership(userId, meta) { member, memberErr ->
                     if (memberErr != null) {
-                        // деградація: якщо membership не змогли визначити — покажемо single
+                        // якщо membership не змогли визначити — покажемо single
                     }
                     if (member != null) {
                         _state.postValue(
@@ -133,7 +133,6 @@ class TrainingDetailsViewModel(
                     )
                 )
                 if (ok) {
-                    // щоб UI закрив шіт
                     _singleSuccess.postValue(Event(Unit))
                 }
             }

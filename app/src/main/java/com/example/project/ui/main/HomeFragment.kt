@@ -141,10 +141,8 @@ class HomeFragment: Fragment() {
         btnLogout.setOnClickListener {
             dialog.dismiss()
 
-            // Вийти з акаунту
             authViewModel.logout()
 
-            // Перейти назад на екран логіну
             navController.popBackStack(R.id.GoogleLoginFragment, false)
         }
 

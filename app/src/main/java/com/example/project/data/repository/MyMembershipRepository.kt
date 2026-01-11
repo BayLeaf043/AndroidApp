@@ -162,17 +162,11 @@ class MyMembershipRepository(
     }
 
     private fun sortArchive(list: List<MyMembershipUi>): List<MyMembershipUi> {
-        // Архів: найновіші завершені зверху (по endAt, якщо є, інакше по created логіки нема — тож по startAt)
         return list.sortedByDescending {
             if (it.endAtMillis > 0L) it.endAtMillis else it.startAtMillis
         }
     }
 
-    /**
-     * 1) Перевіряє активні абонементи користувача
-     * 2) Якщо треба — ставить status="finished"
-     * 3) onDone викликається завжди (навіть якщо нічого не оновлювали)
-     */
     fun refreshFinishedMemberships(
         uid: String,
         onDone: (String?) -> Unit // null якщо ок, або error msg
@@ -244,7 +238,6 @@ class MyMembershipRepository(
                                 }
                             },
                             onError = {
-                                // не критично: просто пропускаємо
                                 next()
                             }
                         )
@@ -258,11 +251,8 @@ class MyMembershipRepository(
             )
     }
 
-    /**
-     * Перевіряє чи є у purchaseId бронювання на МАЙБУТНІ сесії.
-     * true = є майбутні → ще не finished
-     * false = нема майбутніх → можна finished (якщо visitsUsed==visitsTotal)
-     */
+
+     //Перевіряє чи є у purchaseId бронювання на МАЙБУТНІ сесії.
     private fun hasAnyFutureSession(
         bookings: List<Booking>,
         now: Long,

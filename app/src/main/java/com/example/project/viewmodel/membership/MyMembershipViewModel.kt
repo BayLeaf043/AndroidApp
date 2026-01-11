@@ -28,7 +28,6 @@ class MyMembershipViewModel(
 
         repository.refreshFinishedMemberships(uid) { errMsg ->
             if (!errMsg.isNullOrBlank()) {
-                // не критично, але можна показати
                 error.postValue(errMsg)
             }
 

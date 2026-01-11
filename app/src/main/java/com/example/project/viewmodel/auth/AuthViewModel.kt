@@ -55,7 +55,6 @@ class AuthViewModel(
                 return@signInWithGoogle
             }
 
-            // після успішного логіну — перевіряємо профіль
             repository.loadUserProfile { profile ->
                 _loading.postValue(false)
                 _currentProfile.postValue(profile)
@@ -104,6 +103,5 @@ class AuthViewModel(
         _currentProfile.value = null
         _loading.value = false
         _errorMessage.value = null
-        // навігацію не тригеримо — це зробить UI (або окремий event, якщо треба)
     }
 }

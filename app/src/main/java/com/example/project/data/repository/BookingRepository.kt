@@ -19,7 +19,7 @@ class BookingRepository(
             userId = userId,
             sessionId = sessionId,
             onSuccess = { onResult(it) },
-            onError = { onResult(false) } // не валимо UI
+            onError = { onResult(false) }
         )
     }
 
@@ -161,7 +161,7 @@ class BookingRepository(
                 throw IllegalStateException("😔 Місць більше немає")
             }
 
-            // ✅ резервуємо місце
+            // резервуємо місце
             if (capacity > 0) {
                 tx.update(sessionRef, "bookedActive", bookedActive + 1)
             }

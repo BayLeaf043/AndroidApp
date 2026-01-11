@@ -43,7 +43,6 @@ class ScheduleAdapter (
         holder.tvTrainer.text = item.trainerName
         holder.tvDuration.text = "${calcDuration(item.startAt, item.endAt)} хв"
 
-        // Якщо минуло — робимо сірішим і показуємо бейдж
         if (item.isPassed) {
             holder.card.alpha = 0.45f
             holder.tvPassed.visibility = View.VISIBLE
@@ -51,10 +50,6 @@ class ScheduleAdapter (
             holder.card.alpha = 1f
             holder.tvPassed.visibility = View.GONE
         }
-
-        //holder.card.setOnClickListener {
-            //onItemClick(item)
-        //}
 
         holder.card.isEnabled = !item.isPassed
         holder.card.setOnClickListener { if (!item.isPassed) onItemClick(item) }

@@ -48,9 +48,7 @@ class ScheduleViewModel (
                     reloadDate?.let { loadForDate(it) }
                 }
             },
-            onError = {
-                // не критично — можна просто промовчати або записати _error для дебагу
-            }
+            onError = { }
         )
     }
 

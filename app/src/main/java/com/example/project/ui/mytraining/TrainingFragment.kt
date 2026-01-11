@@ -81,7 +81,6 @@ class TrainingFragment: Fragment() {
             rv.visibility = if (list.isEmpty()) View.GONE else View.VISIBLE
         }
 
-        // first load
         vm.load(uid)
     }
     }

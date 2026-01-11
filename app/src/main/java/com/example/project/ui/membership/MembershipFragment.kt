@@ -95,7 +95,7 @@ class MembershipFragment: Fragment() {
         }
 
         if (uid != null) {
-            vm.load(uid) // тут уже String
+            vm.load(uid)
         } else {
             Toast.makeText(requireContext(), "Користувач не авторизований", Toast.LENGTH_SHORT).show()
             findNavController().navigateUp()

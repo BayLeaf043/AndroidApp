@@ -34,7 +34,7 @@ fun MembershipPager(
         state = pagerState,
         modifier = Modifier
             .fillMaxWidth()
-            .height(240.dp), // трішки більше, бо кнопка
+            .height(240.dp),
         contentPadding = PaddingValues(horizontal = 8.dp),
         pageSpacing = 12.dp
     ) { page ->
@@ -77,7 +77,6 @@ private fun MembershipCard(
                 .padding(16.dp)
         ) {
 
-            // Верхній ряд: Назва + бейдж статусу
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
@@ -95,7 +94,6 @@ private fun MembershipCard(
 
             Spacer(Modifier.height(6.dp))
 
-            // Група + тренер
             Text(
                 text = "${item.trainingType.uppercase()} • ${item.level} • ${item.ageGroup}",
                 color = Color.White.copy(alpha = 0.75f),
@@ -107,7 +105,6 @@ private fun MembershipCard(
             val isActive = item.status.equals("active", ignoreCase = true)
             val isPending = item.status.equals("pending", ignoreCase = true)
 
-            // Період або "очікує активації"
             if (isActive && item.startAtMillis > 0L && item.endAtMillis > 0L) {
                 Text(
                     text = "${formatDate(item.startAtMillis)} — ${formatDate(item.endAtMillis)}",
@@ -134,7 +131,6 @@ private fun MembershipCard(
 
             Spacer(Modifier.weight(1f))
 
-            // ✅ КНОПКА тільки для pending
             if (isPending) {
                 Button(
                     onClick = onActivateToday,

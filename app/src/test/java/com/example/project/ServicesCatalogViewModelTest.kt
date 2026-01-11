@@ -53,7 +53,6 @@ class ServicesCatalogViewModelTest {
     fun setup() {
         repo = mockk()
 
-        // за замовчуванням — успішне завантаження
         every { repo.loadMembershipServices(any()) } answers {
             val cb = firstArg<(List<Service>?, String?) -> Unit>()
             cb(services, null)

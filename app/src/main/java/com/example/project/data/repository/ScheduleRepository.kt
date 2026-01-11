@@ -31,7 +31,6 @@ class ScheduleRepository(
                     return@getSessionsForDay
                 }
 
-                // Щоб не ускладнювати: завантажимо всі активні групи і тренерів (1 раз) і зіставимо
                 groupsRemote.getActiveGroups(
                     onSuccess = { groups ->
                         trainersRemote.getActiveTrainers(

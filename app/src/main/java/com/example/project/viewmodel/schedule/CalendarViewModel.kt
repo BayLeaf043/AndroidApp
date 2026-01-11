@@ -66,7 +66,6 @@ class CalendarViewModel: ViewModel() {
         }
         _days.value = list
 
-        // ✅ вибираємо сьогодні, якщо поточний місяць, інакше перший день
         val newIndex = if (selectTodayIfPossible) {
             val today = Calendar.getInstance()
             val sameMonth = today.get(Calendar.YEAR) == monthCal.get(Calendar.YEAR) &&

@@ -37,7 +37,6 @@ class ScheduleGeneratorRepository(
                     return@getActiveGroups
                 }
 
-                // Для кожної групи читаємо weeklySchedule і генеруємо sessions
                 generateForGroups(groups, start, end, mutableListOf(), 0, onResult)
             },
             onError = { e ->
@@ -55,7 +54,7 @@ class ScheduleGeneratorRepository(
         onResult: (Boolean, String?) -> Unit
     ) {
         if (index >= groups.size) {
-            // Коли зібрали всі sessions -> записуємо в Firestore
+
             if (allSessions.isEmpty()) {
                 onResult(true, null)
                 return
@@ -77,7 +76,6 @@ class ScheduleGeneratorRepository(
                 val generated = buildSessionsForGroup(group, schedule, start, end)
                 allSessions.addAll(generated)
 
-                // наступна група
                 generateForGroups(groups, start, end, allSessions, index + 1, onResult)
             },
             onError = { e ->
@@ -86,10 +84,8 @@ class ScheduleGeneratorRepository(
         )
     }
 
-    /**
-     * Ефективна генерація:
-     * Для кожного weekly slot робимо крок +7 днів.
-     */
+
+    //Для кожного weekly slot робимо крок +7 днів.
     private fun buildSessionsForGroup(
         group: Group,
         schedule: List<WeeklyScheduleItem>,
@@ -139,9 +135,6 @@ class ScheduleGeneratorRepository(
         return result
     }
 
-    /**
-     * Знаходимо першу дату >= rangeStart з потрібним dayOfWeek (Calendar.DAY_OF_WEEK).
-     */
     private fun firstOccurrence(rangeStart: Calendar, targetDayOfWeek: Int): Calendar {
         val c = (rangeStart.clone() as Calendar).apply {
             set(Calendar.HOUR_OF_DAY, 0)
@@ -163,10 +156,8 @@ class ScheduleGeneratorRepository(
         return h to m
     }
 
-    /**
-     * Детермінований id: groupId_yyyyMMdd_HHmm
-     * Це дозволяє запускати генерацію повторно без дублювань (перезапише те саме).
-     */
+
+    // Детермінований id: groupId_yyyyMMdd_HHmm
     private fun sessionDocId(groupId: String, startAtMillis: Long): String {
         val fmt = SimpleDateFormat("yyyyMMdd_HHmm", Locale.US)
         return "${groupId}_${fmt.format(startAtMillis)}"
