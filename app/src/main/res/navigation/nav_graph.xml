@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/GoogleLoginFragment">
+
+    <fragment
+        android:id="@+id/GoogleLoginFragment"
+        android:name="com.example.project.ui.auth.GoogleLoginFragment"
+        tools:layout="@layout/fragment_google_login">
+        <action
+            android:id="@+id/action_phoneFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
+        <action
+            android:id="@+id/action_phoneFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.example.project.ui.auth.UserInfoFragment"
+        tools:layout="@layout/fragment_user_info">
+        <action
+            android:id="@+id/action_userInfoFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_userInfoFragment_to_phoneFragment"
+            app:destination="@id/GoogleLoginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.project.ui.main.HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_phoneFragment"
+            app:destination="@id/GoogleLoginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_membershipFragment"
+            app:destination="@id/membershipFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_trainingFragment"
+            app:destination="@id/trainingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/infoDetailsFragment"
+        android:name="com.example.project.ui.main.InfoDetailsFragment"
+        android:label="InfoDetailsFragment">
+
+        <argument
+            android:name="title"
+            app:argType="string" />
+
+        <argument
+            android:name="imageRes"
+            app:argType="integer" />
+
+        <argument
+            android:name="textRes"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/membershipFragment"
+        android:name="com.example.project.ui.membership.MembershipFragment"
+        tools:layout="@layout/fragment_membership">
+        <action
+           android:id="@+id/action_membershipFragment_to_membershipCatalogFragment"
+           app:destination="@id/membershipCatalogFragment" />
+
+        <action
+            android:id="@+id/action_membershipFragment_to_membershipArchiveFragment"
+            app:destination="@id/membershipArchiveFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/trainingFragment"
+        android:name="com.example.project.ui.mytraining.TrainingFragment"
+        tools:layout="@layout/fragment_my_trainings"/>
+
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.example.project.ui.schedule.ScheduleFragment"
+        tools:layout="@layout/fragment_schedule"/>
+
+    <fragment
+        android:id="@+id/membershipCatalogFragment"
+        android:name="com.example.project.ui.membership.ServicesCatalogFragment"
+        tools:layout="@layout/fragment_services_catalog">
+
+    <action
+        android:id="@+id/action_membershipCatalog_to_membershipPurchase"
+        app:destination="@id/purchaseMembershipFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/membershipArchiveFragment"
+        android:name="com.example.project.ui.membership.MembershipArchiveFragment"
+        tools:layout="@layout/fragment_membership_archive">
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/purchaseMembershipFragment"
+        android:name="com.example.project.ui.membership.PurchaseMembershipFragment"
+        tools:layout="@layout/fragment_membership_purchase"/>
+
+
+    <action
+        android:id="@+id/action_homeFragment_to_infoDetailsFragment"
+        app:destination="@id/infoDetailsFragment" />
+
+
+
+
+</navigation>

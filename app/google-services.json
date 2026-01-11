@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "45038517112",
+    "project_id": "skyline-1b51b",
+    "storage_bucket": "skyline-1b51b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45038517112:android:6350f7de958977dfafe68d",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45038517112-c3cep0ipv4qmp9gg9g8thuhs3mli3pfh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.project",
+            "certificate_hash": "185f34f7688663de41035cdbab799d3512a80d7e"
+          }
+        },
+        {
+          "client_id": "45038517112-mdos3529hn7mscv5r1rstc2gs3blun2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp7q8eb5njwmRnIcMXYg1eMdwCZUFDkzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45038517112-mdos3529hn7mscv5r1rstc2gs3blun2s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

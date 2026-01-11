@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MembershipFilterButton"
+        parent="Widget.Material3.Button.OutlinedButton">
+
+        <!-- Колір тексту -->
+        <item name="android:textColor">@color/orange</item>
+
+        <!-- Колір рамки -->
+        <item name="strokeColor">@color/orange</item>
+        <item name="strokeWidth">1dp</item>
+
+        <!-- Колір фону коли кнопка активна -->
+        <item name="backgroundTint">@color/orange_10</item>
+
+        <!-- Розмір тексту -->
+        <item name="android:textSize">16sp</item>
+
+        <!-- Внутрішні відступи -->
+
+        <!-- Закруглення -->
+        <item name="cornerRadius">12dp</item>
+    </style>
+</resources>
